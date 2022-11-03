@@ -115,7 +115,7 @@ class _MyLoginState extends State<MyLogin> {
                                     width: 305,
                                     height: 45,
                                     child: Material(
-                                      color: const Color(0xFF1DABF0),
+                                      color: Color.fromARGB(164, 179, 2, 2),
                                       borderRadius: BorderRadius.circular(15),
                                       child: const Center(
                                         child: Text(
@@ -156,14 +156,15 @@ class _MyLoginState extends State<MyLogin> {
                                     width: 305,
                                     height: 45,
                                     child: Material(
-                                      color: const Color(0xFF1DABF0),
+                                      color: Color.fromARGB(161, 0, 0, 0),
                                       borderRadius: BorderRadius.circular(15),
                                       child: const Center(
                                         child: Text(
                                           "Sing Up",
                                           style: TextStyle(
                                               fontSize: 15,
-                                              color: Colors.white),
+                                              color: Color.fromARGB(
+                                                  255, 255, 255, 255)),
                                         ),
                                       ),
                                     ),

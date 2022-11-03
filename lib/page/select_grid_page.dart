@@ -1,4 +1,5 @@
 import 'package:dektoonapp/login.dart';
+import 'package:dektoonapp/profile.dart';
 import 'package:drag_select_grid_view/drag_select_grid_view.dart';
 import 'package:dektoonapp/widget/selectable_item_widget.dart';
 import 'package:dektoonapp/fav.dart';
@@ -22,6 +23,7 @@ class _SelectGridPageState extends State<SelectGridPage> {
     'https://cdn-icons-png.flaticon.com/512/7116/7116641.png',
     'https://cdn-icons-png.flaticon.com/512/4114/4114763.png',
   ];
+  final nameFav = ['Drama', 'Fantasy,'];
 
   @override
   void initState() {
@@ -41,24 +43,27 @@ class _SelectGridPageState extends State<SelectGridPage> {
   Widget build(BuildContext context) {
     final sized = MediaQuery.of(context).size;
     final isSelected = controller.value.isSelecting;
-    final text =
-        isSelected ? '${controller.value.amount} Favorite Selected' : MyFav.title;
+    final text = isSelected
+        ? '${controller.value.amount} Favorite Selected'
+        : MyFav.title;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(text),
         leading: isSelected ? CloseButton() : Container(),
+        backgroundColor: Color.fromARGB(255, 255, 0, 0),
         actions: [
           if (isSelected)
             IconButton(
-              icon: Icon(Icons.done),
+              icon: Icon(Icons.navigate_next,
+                  color: Color.fromARGB(255, 0, 0, 0)),
               onPressed: () {
                 final urlSelectedImages = controller.value.selectedIndexes
                     .map<String>((index) => urlImages[index])
                     .toList();
 
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => MyLogin(),
+                  builder: (context) => ProfileUI(),
                 ));
               },
             ),
@@ -77,7 +82,9 @@ class _SelectGridPageState extends State<SelectGridPage> {
           child: Column(children: [
             Container(
               decoration: BoxDecoration(
-                color: isSelected?Color.fromARGB(255, 255, 0, 0):Color.fromARGB(255, 255, 255, 255),
+                color: isSelected
+                    ? Color.fromARGB(255, 255, 0, 0)
+                    : Color.fromARGB(255, 255, 255, 255),
                 image: DecorationImage(
                   image: NetworkImage(
                     urlImages[index],

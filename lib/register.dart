@@ -1,6 +1,7 @@
 import 'package:dektoonapp/fav.dart';
 import 'package:flutter/material.dart';
 import 'package:dektoonapp/login.dart';
+import 'package:dektoonapp/register.dart';
 
 
 class MyRegister extends StatefulWidget {
@@ -134,7 +135,7 @@ class _MyRegisterState extends State<MyRegister> {
                                     width: 305,
                                     height: 45,
                                     child: Material(
-                                      color: const Color(0xFF1DABF0),
+                                      color: const Color.fromARGB(164, 179, 2, 2),
                                       borderRadius: BorderRadius.circular(15),
                                       child: const Center(
                                         child: Text(
@@ -164,12 +165,3 @@ class _MyRegisterState extends State<MyRegister> {
     );
   }
 }
-
-// Route _createRoute() {
-//   return PageRouteBuilder(
-//     pageBuilder: (context, animation, secondaryAnimation) => const MyLogin(),
-//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-//       return child;
-//     },
-//   );
-// }
