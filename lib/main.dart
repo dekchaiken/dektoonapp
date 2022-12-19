@@ -1,12 +1,11 @@
+import 'package:dektoonapp/category.dart';
 import 'package:dektoonapp/fav.dart';
 import 'package:dektoonapp/index.dart';
 import 'package:dektoonapp/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:dektoonapp/login.dart';
 import 'package:dektoonapp/register.dart';
-
-
-
+import 'package:dektoonapp/category.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -17,8 +16,8 @@ void main() {
       'login': (context) => MyLogin(),
       'fav': (context) => MyFav(),
       'profile': (context) => ProfileUI(),
-      'index':(context) => IndexPage(),
-
+      'index': (context) => IndexPage(),
+      'category': (context) => CategoryPage(),
     },
   ));
 }

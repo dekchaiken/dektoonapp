@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:dektoonapp/register.dart';
+import 'package:flutter/services.dart';
 import 'main.dart';
 
 class MyLogin extends StatefulWidget {
@@ -14,6 +15,7 @@ class MyLogin extends StatefulWidget {
 
 class _MyLoginState extends State<MyLogin> {
   @override
+  final _formKey = GlobalKey<FormState>();
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -67,7 +69,8 @@ class _MyLoginState extends State<MyLogin> {
                       margin: EdgeInsets.only(left: 35, right: 35, top: 70),
                       child: Column(
                         children: [
-                          TextField(
+                          TextFormField(
+                            keyboardType: TextInputType.emailAddress,
                             style: TextStyle(
                                 color: Color.fromARGB(255, 255, 255, 255)),
                             decoration: InputDecoration(
@@ -78,7 +81,7 @@ class _MyLoginState extends State<MyLogin> {
                           SizedBox(
                             height: 30,
                           ),
-                          TextField(
+                          TextFormField(
                             style: TextStyle(),
                             obscureText: true,
                             decoration: InputDecoration(

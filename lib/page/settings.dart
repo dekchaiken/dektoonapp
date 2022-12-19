@@ -1,3 +1,5 @@
+import 'package:dektoonapp/index.dart';
+import 'package:dektoonapp/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,19 +12,6 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.green,
-          ),
-        ),
-      ),
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
@@ -38,7 +27,7 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.person,
-                  color: Colors.green,
+                  color: Color.fromARGB(255, 255, 0, 0),
                 ),
                 SizedBox(
                   width: 8,
@@ -56,11 +45,8 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
+            buildAccountOptionRow(context, "Change name"),
             buildAccountOptionRow(context, "Change password"),
-            buildAccountOptionRow(context, "Content settings"),
-            buildAccountOptionRow(context, "Social"),
-            buildAccountOptionRow(context, "Language"),
-            buildAccountOptionRow(context, "Privacy and security"),
             SizedBox(
               height: 40,
             ),
@@ -68,7 +54,7 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.volume_up_outlined,
-                  color: Colors.green,
+                  color: Color.fromARGB(255, 255, 0, 0),
                 ),
                 SizedBox(
                   width: 8,
@@ -87,10 +73,54 @@ class _SettingsPageState extends State<SettingsPage> {
               height: 10,
             ),
             buildNotificationOptionRow("New for you", true),
-            buildNotificationOptionRow("Account activity", true),
-            buildNotificationOptionRow("Opportunity", false),
+            buildNotificationOptionRow("Account activity", false),
             SizedBox(
-              height: 50,
+              height: 35,
+            ),
+            Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(right: 25, top: 200),
+                  child: IconButton(
+                    icon: Icon(
+                      size: 50,
+                      Icons.cancel,
+                      color: Color.fromARGB(255, 255, 0, 0),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => IndexPage()));
+                    },
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 35,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MyLogin()));
+                    },
+                    child: Container(
+                      width: 305,
+                      height: 45,
+                      child: Material(
+                        color: Color.fromARGB(228, 182, 2, 2),
+                        borderRadius: BorderRadius.circular(15),
+                        child: const Center(
+                          child: Text(
+                            "Logout",
+                            style: TextStyle(fontSize: 15, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    )),
+              ],
             ),
           ],
         ),

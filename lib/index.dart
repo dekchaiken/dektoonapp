@@ -1,7 +1,15 @@
+import 'package:dektoonapp/category.dart';
 import 'package:dektoonapp/fav.dart';
 import 'package:dektoonapp/login.dart';
+import 'package:dektoonapp/page/allcartoon.dart';
+import 'package:dektoonapp/page/allcategory.dart';
+import 'package:dektoonapp/page/allnovel.dart';
+import 'package:dektoonapp/page/cartoonnew2.dart';
+import 'package:dektoonapp/page/cartoonnew1.dart';
+import 'package:dektoonapp/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:dektoonapp/page/settings.dart';
+import 'package:dektoonapp/category.dart';
 
 class IndexPage extends StatelessWidget {
   @override
@@ -110,7 +118,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 35, right: 35, top: 20),
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 20),
                           child: Column(children: [
                             TextField(
                               style: TextStyle(
@@ -118,7 +126,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               decoration: InputDecoration(
                                   hintText: "Search",
                                   prefixIcon: Icon(Icons.search),
-                                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(25))),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(40))),
                                   helperStyle: TextStyle(
                                     color: Color.fromARGB(255, 255, 255, 255),
                                   )),
@@ -131,46 +141,213 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ],
               ),
               SizedBox(
-                height: 65,
-              ),
-              buildTextField("Your Name", "", false),
-              buildTextField("Your Number", "", false),
-              buildTextField("Email", "", false),
-              SizedBox(
-                height: 70,
+                height: 15,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => MyFav()));
-                      },
-                      child: Container(
-                        width: 305,
-                        height: 45,
-                        child: Material(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          borderRadius: BorderRadius.circular(15),
-                          child: const Center(
-                            child: Text(
-                              "Back",
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.white),
+                  Container(
+                    padding: EdgeInsets.only(right: 170, top: 0),
+                    child: Text(
+                      'New Cartoon',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AllCartoon()));
+                          },
+                          child: Text(
+                            'Viwe All',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontSize: 13,
                             ),
-                          ),
-                        ),
-                      )),
+                          )),
+                    ],
+                  ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  IconButton(
+                    icon: Image.asset('assets/one.png'),
+                    iconSize: 100,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => Cartoonnew1()));
+                    },
+                  ),
+                  IconButton(
+                    icon: Image.asset('assets/two.png'),
+                    iconSize: 100,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => Cartoonnew2()));
+                    },
+                  ),
+                  IconButton(
+                    icon: Image.asset('assets/three.png'),
+                    iconSize: 100,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => Cartoonnew1()));
+                    },
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Solo Leveling',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 13,
+                      )),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(right: 185, top: 0),
+                    child: Text(
+                      'New Novel',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AllNovel()));
+                          },
+                          child: Text(
+                            'Viwe All',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontSize: 13,
+                            ),
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: Image.asset('assets/logo.png'),
+                    iconSize: 100,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => Cartoonnew1()));
+                    },
+                  ),
+                  IconButton(
+                    icon: Image.asset('assets/logo.png'),
+                    iconSize: 100,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => Cartoonnew1()));
+                    },
+                  ),
+                  IconButton(
+                    icon: Image.asset('assets/logo.png'),
+                    iconSize: 100,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => Cartoonnew1()));
+                    },
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(right: 200, top: 0),
+                    child: Text(
+                      'Category',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AllCategory()));
+                          },
+                          child: Text(
+                            'Viwe All',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontSize: 13,
+                            ),
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: Image.asset('assets/logo.png'),
+                    iconSize: 100,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => Cartoonnew1()));
+                    },
+                  ),
+                  IconButton(
+                    icon: Image.asset('assets/logo.png'),
+                    iconSize: 100,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => Cartoonnew1()));
+                    },
+                  ),
+                  IconButton(
+                    icon: Image.asset('assets/logo.png'),
+                    iconSize: 100,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => Cartoonnew1()));
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   TextButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => MyLogin()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CategoryPage()));
                       },
                       child: Container(
                         width: 305,
@@ -180,7 +357,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           borderRadius: BorderRadius.circular(15),
                           child: const Center(
                             child: Text(
-                              "Continue",
+                              "Create Novel",
                               style:
                                   TextStyle(fontSize: 15, color: Colors.white),
                             ),

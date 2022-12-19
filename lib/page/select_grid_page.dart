@@ -43,32 +43,7 @@ class _SelectGridPageState extends State<SelectGridPage> {
   Widget build(BuildContext context) {
     final sized = MediaQuery.of(context).size;
     final isSelected = controller.value.isSelecting;
-    final text = isSelected
-        ? '${controller.value.amount} Favorite Selected'
-        : MyFav.title;
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text(text),
-        leading: isSelected ? CloseButton() : Container(),
-        backgroundColor: Color.fromARGB(255, 255, 0, 0),
-        actions: [
-          if (isSelected)
-            IconButton(
-              icon: Icon(Icons.navigate_next,
-                  color: Color.fromARGB(255, 0, 0, 0)),
-              onPressed: () {
-                final urlSelectedImages = controller.value.selectedIndexes
-                    .map<String>((index) => urlImages[index])
-                    .toList();
-
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ProfileUI(),
-                ));
-              },
-            ),
-        ],
-      ),
       body: DragSelectGridView(
         gridController: controller,
         padding: EdgeInsets.all(20),
@@ -80,6 +55,9 @@ class _SelectGridPageState extends State<SelectGridPage> {
         ),
         itemBuilder: (context, index, isSelected) => Container(
           child: Column(children: [
+            SizedBox(
+              height: 10,
+            ),
             Container(
               decoration: BoxDecoration(
                 color: isSelected
@@ -100,6 +78,17 @@ class _SelectGridPageState extends State<SelectGridPage> {
           ]),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ProfileUI()),
+          );
+        },
+        child: Icon(Icons.favorite),
+        backgroundColor: Colors.red,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
